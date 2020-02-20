@@ -87,6 +87,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
+  image.alt = `image of ${restaurant.name}`
+  // image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
+  // image.sizes = DBHelper.imageSizesForRestaurant(restaurant);
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
