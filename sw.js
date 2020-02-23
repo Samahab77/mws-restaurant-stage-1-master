@@ -18,7 +18,19 @@ self.addEventListener('install', event => {
                 '/js/main.js',
                 '/js/restaurant_info.js',
                 '/js/register-sw.js', 
-                '/data/restaurants.json'
+                '/js/dbhelper.js',
+                '/data/restaurants.json',
+                '/img/1.jpg',
+                '/img/2.jpg',
+                '/img/3.jpg',
+                '/img/4.jpg',
+                '/img/5.jpg',
+                '/img/6.jpg',
+                '/img/7.jpg',
+                '/img/8.jpg',
+                '/img/9.jpg',
+                '/img/10.jpg',
+                'sw.js'
                 
             ]);
         })
@@ -38,6 +50,42 @@ self.addEventListener('activate', event => {
         })
     );
 });
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.open(cacheName)
+        .then(cache => cache.match(event.request)) //, {ignoreSearch: true}))
+        .then(response => {
+            if (response) {
+                return response;
+            }
+
+            const fetchRequest = event.request.clone();
+
+            return fetch(fetchRequest).then(
+                response => {
+                    // Check if we received a valid response
+                    if (!response || response.status !== 200 || response.type !== 'basic') {
+                        return response;
+                    }
+                    const responseToCache = response.clone();
+                    caches.open(cacheName)
+                        .then(cache => {
+                            cache.put(event.request, responseToCache);
+                        });
+
+                    return response;
+                }
+            );
+        })
+    );
+});
+
+self.addEventListener('restaurant', event => {
+    if (event.data.action === 'skipWaiting') {
+        self.skipWaiting();
+    }
+});
+
 
 // const appName = "restaurant-reviews"
 // const staticCacheName = appName + "-v1.0";
