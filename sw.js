@@ -31,7 +31,6 @@ self.addEventListener('install', event => {
                 '/img/9.jpg',
                 '/img/10.jpg',
                 'sw.js',
-                '/restaurant.html'
                 
             ]);
         })
