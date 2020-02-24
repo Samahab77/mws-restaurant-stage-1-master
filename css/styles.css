@@ -354,6 +354,18 @@ filter-options select:hover,
   header h1 a {
     font-size: 1rem;
   }
-  
+  .inside #breadcrumb {
+     width: calc(72% - 80px);
+     font-size: 5px;
+
+  }
+  .inside #restaurant-name {
+    font-size: 11pt;
+  }
+  .inside #restaurant-hours td {
+    font-size: 10px;
+  }
+  .inside #reviews-container {
+    padding: 23px 2px 79px 23px;
   }
 }
