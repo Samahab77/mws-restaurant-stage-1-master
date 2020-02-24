@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
-
+*{
+  box-sizing: border-box;
+}
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -11,8 +13,8 @@ body {
 	background-color: #fdfdfd;
 	margin: 0;
   position:relative;
-  padding-left: 10%;
-  padding-right: 10%;
+  /* padding-left: 10%;
+  padding-right: 10%; */
 }
 @media screen and (max-width: 600px) {
   body{
@@ -142,6 +144,12 @@ nav h1 a {
   padding: 0 10px;
   width: 200px;
 }
+filter-options select:hover,
+.filter-options select:focus {
+  outline: 0;
+  box-shadow: 0 0 6px 3px rgb(187, 144, 52);
+}
+
 @media screen and (max-width: 600px){
   .filter-options{
     width: 100%;
@@ -211,14 +219,10 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 
-.restaurant {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "restaurant reviews"
-}
 
+.inside body{
+  padding: 0;
+}
 .inside header {
   position: fixed;
   top: 0;
@@ -238,36 +242,15 @@ nav h1 a {
   height: 100%;
   width: 100%;
 }
-/* @media screen and(max: 600px){
-  .inside #breadcrumb {
-    width: calc(100% - 80px);
-  }
-  .inside #map-container{
-    position: relative;
-    overflow: hidden;
-    padding: 10px;
-  }
-  .inside #map{
-  background-color: #ccc;
-  height: 50vh;
-  width: 100%;
-  }
-  .inside #restaurant-container,
-  #reviews-container {
-    border-bottom: 1px solid #d9d9d9;
-    border-top: 1px solid #fff;
-    padding: 80% 10% 4% 10%;
-    width: 92%;
-  }
-  .inside #footer{
-    width: 91%;
-  }
-} */
+
+
 .inside #footer {
+  margin-top: 20px;
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
+
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -348,124 +331,6 @@ nav h1 a {
     left: 15px;
   }
 
-/* ========================== returant detals 2 ========================
-.restaurant {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "restaurant reviews"
-}
-
-.inside header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.inside #map-container {
-  position: relative;
-  overflow: hidden;
-  padding: 10px;
-}
-
-.inside #map {
-  background-color: #ccc;
-  height: 50vh;
-  width: 100%;
-}
-
-.inside #footer {
-  margin-top: 20px;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.inside .restaurant {
-  grid-area: restaurant;
-}
-
-#restaurant-name {
-  color: #f18200;
-  font-family: Arial, sans-serif;
-  font-size: 1.25em;
-  font-weight: 200;
-  letter-spacing: 0;
-  margin: 15px 0 30px;
-  text-transform: uppercase;
-  line-height: 1.1;
-}
-
-#restaurant-img {
-  width: 100%;
-}
-
-#restaurant-address {
-  font-size: 0.9em;
-  margin: 10px 0px;
-}
-
-#restaurant-cuisine {
-  background-color: #333;
-  color: #ddd;
-  font-size: 0.9em;
-  font-weight: 300;
-  letter-spacing: 10px;
-  margin: 0 0 20px;
-  padding: 2px 0;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-}
-
-#restaurant-container,
-#reviews-container {
-  display: block;
-  border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid #fff;
-  padding: 10px;
-}
-
-#reviews-container {
-  grid-area: reviews;
-  padding: 10px;
-}
-
-#reviews-container h2 {
-  color: #f58500;
-  font-size: 2em;
-  font-weight: 300;
-  letter-spacing: -1px;
-  padding-bottom: 1pt;
-}
-
-#reviews-list {
-  margin: 0;
-  padding: 0;
-}
-
-#reviews-list li {
-  background-color: #fff;
-  border: 2px solid #f3f3f3;
-  display: block;
-  list-style-type: none;
-  margin: 10px 0;
-  overflow: hidden;
-  padding: 0 20px 20px;
-  position: relative;
-  width: 100%;
-}
-
-#reviews-list li p {
-  margin: 0 0 10px;
-}
-
-#restaurant-hours td {
-  color: #666;
-}
-
 @media (max-width: 750px) {
   .restaurant {
     grid-template-columns: 1fr;
@@ -478,9 +343,7 @@ nav h1 a {
     padding: 10px 0 0 0;
   }
 
-  .inside #map {
-    height: 30vh;
-  }
+
 }
 
 @media (max-width: 480px) {
@@ -491,4 +354,6 @@ nav h1 a {
   header h1 a {
     font-size: 1rem;
   }
-} */
+  
+  }
+}
